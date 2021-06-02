@@ -7,9 +7,8 @@ import {
   StatusBar,
   TouchableOpacity,
   Image,
-  ScrollView,
   SafeAreaView,
-  TouchableWithoutFeedback
+ 
 
 } from "react-native";
 
@@ -63,7 +62,6 @@ const Login = ({ navigation }) => {
   );
 }
 
-//Stylesheet for input fields
 const styles = StyleSheet.create({
   container: {
     flex: 1,
