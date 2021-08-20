@@ -24,7 +24,7 @@ const Login = ({ navigation }) => {
       <Text style={styles.txt}> Welcome back ! </Text>
     
       <View>
-      <Image source={require("../assets/login.png")} style={{height:300,width:300,alignSelf:"center" ,bottom:-40,position:"absolute"}}></Image>
+      <Image source={require("../assets/login.png")} style={{height:200,width:300,alignSelf:"center" ,bottom:-40,position:"absolute"}}></Image>
       </View>
    
       <TextInput
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     position: "absolute",
-    top: 30,
+    top: 50,
     fontWeight:"bold",
     color: "#15B3D6",
   },
