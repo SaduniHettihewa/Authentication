@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
         onChangeText={(password) => setPassword(password)}
       />
  
-      <TouchableOpacity style={styles.button} onPress={Login}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("home")} >
         <Text style={styles.text}> Login </Text>
       </TouchableOpacity>
 
@@ -50,7 +50,7 @@ const Login = ({ navigation }) => {
         Don't have an account yet ?
         </Text>
       <TouchableOpacity
-        onPress={() => navigation.navigate("RolleSelectionScreen")}
+        // onPress={() => navigation.navigate("RolleSelectionScreen")}
         style={{ position: "absolute", top: 580 }}
       >
         <Text style={{ color: "#71D3E7" ,fontWeight:"bold" }}> SignUp </Text>
