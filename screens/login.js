@@ -21,7 +21,7 @@ const [password, setPassword] = useState("");
 
 
  const login = ()=>{
-  fetch(`http://192.168.8.105:8012/My-php/Login.php`, {
+  fetch(`http://localhost:8012/My-php/Login.php`, {
     method: "POST",
     mode: "cors",
 
@@ -40,6 +40,7 @@ const [password, setPassword] = useState("");
     .then((res) => res.json())
     .then((response) => {
       console.log(response)
+      navigation.navigate("home.js")
       alert("weelcome!!!!!");
     })
    
