@@ -1,5 +1,5 @@
 # Authentication
-   This is a simple login app with Recat native + php + mysql 
+   This is a simple login app with Reactnative + php + mysql 
    
    
    
