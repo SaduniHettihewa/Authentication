@@ -8,12 +8,42 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
- 
+ alert
 
 } from "react-native";
 
 
+
 const Login = ({ navigation }) => { 
+  
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+
+ const login = ()=>{
+  fetch(`http://192.168.8.105:8012/My-php/Login.php`, {
+    method: "POST",
+    mode: "cors",
+
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    
+    },
+
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response)
+      alert("weelcome!!!!!");
+    })
+   
+}
     
   return (
     <SafeAreaView style={{flex:1}} >
@@ -42,7 +72,7 @@ const Login = ({ navigation }) => {
         onChangeText={(password) => setPassword(password)}
       />
  
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("home")} >
+      <TouchableOpacity name="login" style={styles.button} onPress={login} >
         <Text style={styles.text}> Login </Text>
       </TouchableOpacity>
 
