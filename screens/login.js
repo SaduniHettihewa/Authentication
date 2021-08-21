@@ -8,98 +8,106 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
- 
+
 
 } from "react-native";
 
 
 
-const Login = ({ navigation }) => { 
-  
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
 
- const login = ()=>{
-  fetch(`http://192.168.8.105:8012/My-php/Login.php`, {
-    method: "POST",
-    mode: "cors",
-   
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    
-    },
 
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-    
-  })
-  .then((response) => response.json())
-   .then((responseJson)=>{
-     if(responseJson == 'Welcome'){
-       // redirect to profile page
-       alert("Successfully Login");
+  const login = () => {
+    console.log(JSON)
+    fetch(`http://192.168.8.105:8012/My-php/Login.php`, {
+      method: "POST",
+      mode: "cors",
+
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "ORIGIN",
+
+      },
+
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      },
+
+      ),
+
+
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson);
+        if (responseJson == 'Welcome') {
+      
+          alert("Successfully Login");
+
+        } else {
+          alert("Wrong Login Details");
        
-     }else{
-       alert("Wrong Login Details");
-     }
-   })
-   .catch((error)=>{
-   console.error(error);
-   });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
-  
-  
- 
 
-    
+
+
+
+
   return (
-    <SafeAreaView style={{flex:1}} >
-   
-    <View style={styles.container}>
-   
-      <StatusBar backgroundColor="#15B3D6" barStyle="light-content" />
-      <Text style={styles.txt}> Welcome back ! </Text>
-    
-      <View>
-      <Image source={require("../assets/login.png")} style={{height:200,width:300,alignSelf:"center" ,bottom:-40,position:"absolute"}}></Image>
-      </View>
-   
-      <TextInput
-        style={styles.input1}
-        placeholder="Email"
-        placeholderTextColor="#516F75"
-        onChangeText={(email) => setEmail(email)}
-      />
+    <SafeAreaView style={{ flex: 1 }} >
 
-      <TextInput
-        style={styles.input2}
-        placeholder="Password"
-        placeholderTextColor="#516F75"
-        secureTextEntry={true}
-        onChangeText={(password) => setPassword(password)}
-      />
- 
-      <TouchableOpacity name="login" style={styles.button} onPress={login} >
-        <Text style={styles.text}> Login </Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
 
-      <Text style={{ position: "absolute", top: 550, color: "#71D3E7" }}>
-        Don't have an account yet ?
+        <StatusBar backgroundColor="#15B3D6" barStyle="light-content" />
+        <Text style={styles.txt}> Welcome back ! </Text>
+
+        <View>
+          <Image source={require("../assets/login.png")} style={{ height: 200, width: 300, alignSelf: "center", bottom: -40, position: "absolute" }}></Image>
+        </View>
+
+        <TextInput
+          style={styles.input1}
+          placeholder="Email"
+          placeholderTextColor="#516F75"
+          onChangeText={(email) => setEmail(email)}
+        />
+
+        <TextInput
+          style={styles.input2}
+          placeholder="Password"
+          placeholderTextColor="#516F75"
+          secureTextEntry={true}
+          onChangeText={(password) => setPassword(password)}
+        />
+
+        <TouchableOpacity name="login" style={styles.button} onPress={login} >
+          <Text style={styles.text}> Login </Text>
+        </TouchableOpacity>
+
+        <Text style={{ position: "absolute", top: 550, color: "#71D3E7" }}>
+          Don't have an account yet ?
         </Text>
-      <TouchableOpacity
-        // onPress={() => navigation.navigate("RolleSelectionScreen")}
-        style={{ position: "absolute", top: 580 }}
-      >
-        <Text style={{ color: "#71D3E7" ,fontWeight:"bold" }}> SignUp </Text>
-      </TouchableOpacity >
-     
-   
-    </View>
-</SafeAreaView>
+        <TouchableOpacity
+          // onPress={() => navigation.navigate("RolleSelectionScreen")}
+          style={{ position: "absolute", top: 580 }}
+        >
+          <Text style={{ color: "#71D3E7", fontWeight: "bold" }}> SignUp </Text>
+        </TouchableOpacity >
+
+
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -122,14 +130,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     textAlign: "center",
-    color:"white"
+    color: "white"
   },
   txt: {
     fontSize: 30,
     textAlign: "center",
     position: "absolute",
     top: 50,
-    fontWeight:"bold",
+    fontWeight: "bold",
     color: "#15B3D6",
   },
 
@@ -143,8 +151,8 @@ const styles = StyleSheet.create({
     color: "#7B8081",
     position: "absolute",
     top: 360,
-    borderColor:"#71D3E7",
-    borderWidth:3
+    borderColor: "#71D3E7",
+    borderWidth: 3
   },
   input2: {
     width: 300,
@@ -156,8 +164,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     fontSize: 15,
     color: "#7B8081",
-    borderColor:"#71D3E7",
-    borderWidth:3
+    borderColor: "#71D3E7",
+    borderWidth: 3
   },
   errtxt: {
     color: "red",
