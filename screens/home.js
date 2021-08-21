@@ -49,7 +49,6 @@ const Home = ({ navigation}) => {
             buttonStyle={styles.button}
             title="Start your Journey"
             titleStyle={styles.buttonTitle}
-            onPress={() => console.log("start your trip")}
             activeOpacity={0.5}
           />
         </View>
@@ -57,7 +56,6 @@ const Home = ({ navigation}) => {
       <View style={styles.container}>
         <FloatingButton
           style={styles.floatinBtn}
-          onPress={() => navigation.navigate("ChatLogin")}
         />
       </View>
     </>
