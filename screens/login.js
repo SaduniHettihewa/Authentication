@@ -14,7 +14,7 @@ import {
 
 
 
-const Login = () => {
+const Login = ({navigation}) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +43,7 @@ const Login = () => {
         if (responseJson == 'Welcome') {
 
           alert("Successfully Login");
+          navigation.navigate("home");
 
         } else {
           alert("Wrong Login Details");
