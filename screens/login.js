@@ -21,7 +21,7 @@ const Login = ({navigation}) => {
 
   //logib funcation 
   const login = () => {
-    fetch(`http://localhost:8012/My-php/Login.php`, {
+    fetch(`http://192.168.8.102:8012/My-php/Login.php`, {
       method: "POST",
       mode: "cors",
 

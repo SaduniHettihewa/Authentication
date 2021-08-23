@@ -4,14 +4,11 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
   SafeAreaView,
   Dimensions,
 } from "react-native";
-import { Button, Icon } from "react-native-elements";
-import FloatingButton from "../comps/FloatingButton";
 
-import FocusAwareStatusBar from "../Navigation/FocusAwareStatusBar";
+
 
 const Home = ({ navigation}) => {
 
@@ -33,10 +30,7 @@ const Home = ({ navigation}) => {
         <Text style={styles.titleText}>Welcome !</Text>
       </View>
       <SafeAreaView style={{ flex: 6, alignItems: "center" }}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={styles.login}
-        />
+        
       </SafeAreaView>
       <View style={{ flex: 5 }}>
         <View style={{ alignItems: "center", marginTop: 20 }}>
@@ -75,10 +69,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
   },
-  icon: {
-    left: -(Dimensions.get("window").width / 2 - 30),
-    top: 15,
-  },
+ 
   headerText: {
     left: 55,
     fontSize: 20,
