@@ -1,13 +1,15 @@
 
 import React from 'react';
-
-import { StyleSheet, Text, View} from 'react-native';
-
-import Login from "./screens/login"
-
+import RootStack from "./Navigation/RootStack";
+import { StyleSheet} from 'react-native';
+import { NavigationContainer} from "@react-navigation/native";
 export default function App() {
   return (
-  <Login/>
+    <>
+      <NavigationContainer>
+        <RootStack/>
+      </NavigationContainer>
+    </>
   );
 }
 
